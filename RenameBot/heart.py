@@ -3,7 +3,7 @@ from io import BytesIO
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from RenameBot.functions import progress
-from RenameBot.database import SESSION
+from RenameBot.database import db  # ✅ MongoDB client if needed
 from RenameBot.database.users_sql import Users
 
 extensions = ["mp4", "mkv", "avi", "pdf"]
