@@ -2,7 +2,7 @@ import shutil
 from pyrogram import Client, filters
 from pyrogram.types import CallbackQuery, InlineKeyboardMarkup, InlineKeyboardButton
 from Data import Data
-from RenameBot.database import SESSION
+from RenameBot.database import users_col
 from RenameBot.database.users_sql import Users
 
 
