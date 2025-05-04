@@ -4,7 +4,7 @@ import logging
 import asyncio
 from pyrogram import Client, idle
 from pyrogram.errors import ApiIdInvalid, ApiIdPublishedFlood, AccessTokenInvalid
-import Config
+from config import Config  # ✅ Corrected import
 
 # Set timezone to UTC (may help with msg_id sync issue)
 os.environ["TZ"] = "UTC"
