@@ -1,17 +1,24 @@
-from RenameBot.database import db
+import os
+from motor.motor_asyncio import AsyncIOMotorClient
 
-users_collection = db.users
+MONGO_URI = os.environ.get("MONGO_URI", "mongodb://localhost:27017")
+client = AsyncIOMotorClient(MONGO_URI)
+db = client["rename_bot"]
+users_collection = db["users"]
 
-async def add_user(user_id):
-    existing = await users_collection.find_one({"_id": user_id})
-    if not existing:
-        await users_collection.insert_one({"_id": user_id})
+class Users:
+    @staticmethod
+    async def add_user(user_id: int):
+        user = await users_collection.find_one({"_id": user_id})
+        if not user:
+            await users_collection.insert_one({"_id": user_id})
+            return True
+        return False
 
-async def get_all_users():
-    users = []
-    async for user in users_collection.find({}):
-        users.append(user["_id"])
-    return users
+    @staticmethod
+    async def get_all_users():
+        return [user["_id"] async for user in users_collection.find()]
 
-async def count_users():
-    return await users_collection.count_documents({})
+    @staticmethod
+    async def count_users():
+        return await users_collection.count_documents({})
