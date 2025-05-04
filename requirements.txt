@@ -2,9 +2,6 @@ pyrogram==2.0.106
 tgcrypto
 
 
-SQLAlchemy~=1.4.21
-psycopg2
-
 pyromod~=1.5
 humanize~=3.11.0
-pymango
+pymongo
