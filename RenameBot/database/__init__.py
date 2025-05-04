@@ -1,16 +1,8 @@
-from sqlalchemy import create_engine
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker, scoped_session
+from pymongo import MongoClient
 from config import Config
-DATABASE_URL = Config.DATABASE_URL
 
+MONGO_DB_URI = Config.DATABASE_URL
 
-def start() -> scoped_session:
-    engine = create_engine(DATABASE_URL)
-    BASE.metadata.bind = engine
-    BASE.metadata.create_all(engine)
-    return scoped_session(sessionmaker(bind=engine, autoflush=False))
-
-
-BASE = declarative_base()
-SESSION = start()
+client = MongoClient(MONGO_DB_URI)
+db = client['RenameBotDB']  # You can change this to any DB name you want
+users_col = db['users']
