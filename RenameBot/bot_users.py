@@ -1,7 +1,8 @@
 from pymongo import MongoClient
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from Config import MONGO_DB_URI
+from config import Config
+MONGO_DB_URI = Config.DATABASE_URL
 
 client = MongoClient(MONGO_DB_URI)
 db = client['RenameBotDB']
