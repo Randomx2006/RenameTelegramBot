@@ -20,7 +20,7 @@ else:
     API_ID = 25132804
     API_HASH = "843d95d64eba173d7ef49ed4bb1440a8"
     BOT_TOKEN = "7591552604:AAHrwJwmVGwxbNTDphs-ku9wTisamrUuk0U"
-    DATABASE_URL = "mongodb+srv://<ransome459>:<ransome459>@cluster0.bffjdxl.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+    DATABASE_URL = "mongodb+srv://ransome459:whitefield@cluster0.bffjdxl.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 "
     MUST_JOIN = "@𝘼𝙡𝙙𝙚𝙧𝙖𝙢𝙞𝙣 𝙤𝙣 𝙩𝙝𝙚 𝙎𝙠𝙮"
     if MUST_JOIN.startswith("@"):
