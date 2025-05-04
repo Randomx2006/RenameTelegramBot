@@ -3,4 +3,5 @@ tgcrypto
 pyromod~=1.5
 humanize~=3.11.0
 pymongo
-sqlalchemy
+motor==3.3.1
+
