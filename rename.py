@@ -1,3 +1,9 @@
+import time
+import os
+
+# Force update the system time zone if needed
+os.environ['TZ'] = 'UTC'
+time.tzset()
 import logging
 from pyrogram import Client, idle
 import Config
