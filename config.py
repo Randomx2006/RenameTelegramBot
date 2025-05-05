@@ -19,3 +19,5 @@ class Config:
     # Other optional settings
     CAPTION = os.getenv("CAPTION", "")
     PROGRESS = os.getenv("PROGRESS", "")
+
+    MUST_JOIN = os.getenv("@𝘼𝙡𝙙𝙚𝙧𝙖𝙢𝙞𝙣 𝙤𝙣 𝙩𝙝𝙚 𝙎𝙠𝙮")  # or default to a channel username or ID, e.g., "@mychannel"
