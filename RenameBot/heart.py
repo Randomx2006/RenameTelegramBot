@@ -7,7 +7,7 @@ from RenameBot.database.users_mongo import Users  # ✅ MongoDB handler class
 
 extensions = ["mp4", "mkv", "avi", "pdf"]
 
-@Client.on_message(filters.private & (filters.document | filters.video) & ~filters.edited & filters.incoming)
+@Client.on_message(filters.private & (filters.document | filters.video) & filters.incoming)
 async def _rename(bot: Client, msg: Message):
     user_id = msg.from_user.id
     user = await Users.get(user_id)
