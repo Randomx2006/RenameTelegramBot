@@ -6,7 +6,7 @@ from config import Config
 MUST_JOIN = Config.MUST_JOIN
 
 
-@Client.on_message(filters=(~filters.edited & ~filters.service & filters.user & filters.incoming), group=-1)
+@Client.on_message(filters=(~filters.edited_messages & ~filters.service & filters.user & filters.incoming), group=-1)
 async def must_join_channel(bot: Client, msg: Message):
     try:
         try:
