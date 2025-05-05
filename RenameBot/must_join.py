@@ -5,8 +5,7 @@ from config import Config
 
 MUST_JOIN = Config.MUST_JOIN
 
-
-@Client.on_message(filters=(~filters.edited_messages & ~filters.service & filters.user & filters.incoming), group=-1)
+@Client.on_message(filters=(~filters.edited & ~filters.service & filters.user & filters.incoming), group=-1)
 async def must_join_channel(bot: Client, msg: Message):
     try:
         try:
@@ -18,7 +17,7 @@ async def must_join_channel(bot: Client, msg: Message):
                 chat_info = await bot.get_chat(MUST_JOIN)
                 link = chat_info.invite_link
             await msg.reply(
-                f"You must join [this channel]({link}) to use this bot. After joining try again !",
+                f"You must join [this channel]({link}) to use this bot. After joining try again!",
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup([
                     [InlineKeyboardButton("✨ Join Channel ✨", url=link)]
