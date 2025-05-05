@@ -1,7 +1,9 @@
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 from pyrogram.errors import ChatAdminRequired, UserNotParticipant
-from config import MUST_JOIN
+from config import Config
+
+MUST_JOIN = Config.MUST_JOIN
 
 
 @Client.on_message(filters=(~filters.edited & ~filters.service & filters.user & filters.incoming), group=-1)
