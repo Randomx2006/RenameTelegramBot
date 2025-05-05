@@ -5,16 +5,14 @@ from config import Config
 
 MUST_JOIN = Config.MUST_JOIN
 
-from pyrogram import Client
-
-@app.on_message(filters=(~filters.edited & ~filters.service & filters.user & filters.incoming), group=-1)
+@Client.on_message(filters=(~filters.service & filters.user & filters.incoming), group=-1)
 async def must_join_channel(bot: Client, msg: Message):
     try:
         try:
             await bot.get_chat_member(MUST_JOIN, msg.from_user.id)
         except UserNotParticipant:
             if MUST_JOIN.isalpha():
-                link = "https://t.me/" + MUST_JOIN
+                link = f"https://t.me/{MUST_JOIN}"
             else:
                 chat_info = await bot.get_chat(MUST_JOIN)
                 link = chat_info.invite_link
@@ -25,6 +23,6 @@ async def must_join_channel(bot: Client, msg: Message):
                     [InlineKeyboardButton("✨ Join Channel ✨", url=link)]
                 ])
             )
-            await msg.stop_propagation()
+            return await msg.stop_propagation()
     except ChatAdminRequired:
-        print(f"I'm not admin in the MUST_JOIN chat : {MUST_JOIN} !")
+        print(f"I'm not admin in the MUST_JOIN chat: {MUST_JOIN}!")
